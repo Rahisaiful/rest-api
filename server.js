@@ -1,15 +1,15 @@
 const express = require( 'express' );
-
+const contactRouter = require( './api/routes/contact.js' );
 const app = express();
 
 const PORT = process.env.PORT || 3000
 
-app.get( '/', ( req, res ) => {
-    res.send( '<div class="t"><h1>Say hello</h1></div>' );
-} );
 
-app.get( '/posts', ( req, res ) => {
-    res.send( '<h1>A lot of post</h1>' );
+app.use( '/api/contact', contactRouter );
+app.use( '/api/contact', contactRouter );
+
+app.get( '/', ( req, res ) =>{
+    res.send( 'Hello Home page' );
 } )
 
 app.listen( PORT, () => {
